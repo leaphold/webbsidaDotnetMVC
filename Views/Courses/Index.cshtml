@@ -1,0 +1,54 @@
+
+@{
+    ViewData["Title"] = "Home Page";//Denna måste också ändras från NUll till det som är defalut för alla sidor
+}
+@model List<Course>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+<h2>Index</h2>
+<div class="container">
+  <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <i class="bi bi-emoji-sunglasses"></i>
+                    <i class="bi bi-emoji-surprise"></i>
+                    <i class="bi bi-emoji-smile-upside-down"></i>
+                    <i class="bi bi-emoji-heart-eyes"></i>
+
+                    <th>
+                        Course
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Starting Date
+                    </th>
+                    <th>
+                        Ending Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach(var obj in Model.OrderBy(u=>u.Id))
+            {
+            <tr>
+                <td>@obj.Title</td>
+                <td>@obj.Description</td>
+                <td>@obj.StartDate</td>
+                <td>@obj.EndDate</td>
+            </tr>
+            }
+        </tbody>
+</div>
+  
+</body>
+</html>
